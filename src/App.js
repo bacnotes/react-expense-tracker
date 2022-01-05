@@ -1,8 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 import './scss/main.scss';
 import ExpenseList from './components/Expense/ExpenseList';
 import NewExpense from './components/NewExpense/NewExpense';
-import { useState } from 'react'
 const App = () => {
   const dummyExpenseList = [
     {

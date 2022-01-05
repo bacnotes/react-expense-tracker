@@ -29,7 +29,6 @@ const ExpenseForm = (props) => {
       ...userInput,
       date: new Date (userInput.date)
     }
-    console.log('expensedata',expenseData);
     // to server data
     props.onSaveExpenseData(expenseData);
     // reset form
