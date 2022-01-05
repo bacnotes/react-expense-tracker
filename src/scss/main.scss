@@ -1,0 +1,33 @@
+@import 'reset';
+@import 'breakpoint';
+
+.expense-item {
+  display: flex;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background-color: #e1edee;
+  width:100vw;
+  &__description {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+  &__name {
+    flex: 1;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    color: #f39800;
+  }
+  &__price {
+    padding: 0.5rem;
+    border: 1px solid white;
+    border-radius: 0.8rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #a8c97f;
+    @include media-min($sm) {
+      padding: 0.5rem 1.5rem;
+    }
+  }
+}

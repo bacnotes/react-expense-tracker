@@ -1,0 +1,8 @@
+/* default breakPoints */
+$sm: "376px"; 
+
+@mixin media-min($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
