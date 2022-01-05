@@ -6,7 +6,7 @@
   padding: 0.5rem;
   margin: 1rem 0;
   background-color: #e1edee;
-  width:100vw;
+  width: 100vw;
   &__description {
     display: flex;
     flex: 1;
@@ -16,7 +16,7 @@
     flex: 1;
     padding: 0 1rem;
     font-size: 1.25rem;
-    color: #f39800;
+    color: #71a3ac;
   }
   &__price {
     padding: 0.5rem;
@@ -29,5 +29,30 @@
     @include media-min($sm) {
       padding: 0.5rem 1.5rem;
     }
+  }
+}
+
+.expense-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid #ececec;
+  background-color: #eebed6;
+  color: white;
+  border-radius: 0.8rem;
+
+  &__year {
+    font-size: 0.8rem;
+  }
+  &__month {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  &__day {
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 }
