@@ -1,4 +1,5 @@
-import ExpenseItem from "./ExpenseItem";
+import ExpenseItem from './ExpenseItem';
+import Container from './Container'
 const Expenselist = () => {
   const expenses = [
     {
@@ -23,7 +24,7 @@ const Expenselist = () => {
   ];
 
   return (
-    <div>
+    <Container>
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -44,7 +45,7 @@ const Expenselist = () => {
         amount={expenses[3].amount}
         date={expenses[3].date}
       />
-    </div>
+    </Container>
   );
 }
 

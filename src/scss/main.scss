@@ -1,6 +1,10 @@
 @import 'reset';
 @import 'breakpoint';
 
+.container {
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 8px rgba(152, 105, 163, 0.25);
+}
 .expense-item {
   display: flex;
   padding: 0.5rem;
@@ -21,7 +25,6 @@
   &__price {
     padding: 0.5rem;
     border: 1px solid white;
-    border-radius: 0.8rem;
     font-size: 1.25rem;
     font-weight: bold;
     color: #ffffff;
@@ -42,8 +45,6 @@
   border: 1px solid #ececec;
   background-color: #eebed6;
   color: white;
-  border-radius: 0.8rem;
-
   &__year {
     font-size: 0.8rem;
   }
