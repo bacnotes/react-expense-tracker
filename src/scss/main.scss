@@ -2,15 +2,62 @@
 @import 'breakpoint';
 
 .container {
-  border-radius: 0.8rem;
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 0.6rem;
   box-shadow: 0 1px 8px rgba(152, 105, 163, 0.25);
+}
+
+.new-expense {
+  text-align: center;
+  background-color: #a3c3e7;
+  button {
+    font: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #fff;
+    background-color: #65a779;
+    color: white;
+    border-radius: 12px;
+    margin-right: 0.4rem;
+    &:hover,
+    &:active {
+      background-color: #e47fb2;
+    }
+  }
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    input {
+      font: inherit;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 20rem;
+      max-width: 100%;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  }
+  &__actions {
+    text-align: right;
+  }
 }
 .expense-item {
   display: flex;
   padding: 0.5rem;
   margin: 1rem 0;
   background-color: #e1edee;
-  width: 100vw;
+  border-radius: 0.6rem;
   &__description {
     display: flex;
     flex: 1;
@@ -18,14 +65,15 @@
   }
   &__name {
     flex: 1;
+    text-align: left;
     padding: 0 1rem;
-    font-size: 1.25rem;
-    color: #71a3ac;
+    font-size: 1.1rem;
+    color: #65a779;
   }
   &__price {
     padding: 0.5rem;
     border: 1px solid white;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #ffffff;
     background-color: #a8c97f;
@@ -43,7 +91,7 @@
   width: 5.5rem;
   height: 5.5rem;
   border: 1px solid #ececec;
-  background-color: #eebed6;
+  background-color: #e47fb2;
   color: white;
   &__year {
     font-size: 0.8rem;
@@ -57,3 +105,4 @@
     font-weight: bold;
   }
 }
+

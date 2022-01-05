@@ -1,6 +1,6 @@
 import ExpenseItem from './ExpenseItem';
 import Container from './Container'
-const Expenselist = () => {
+const ExpenseList = () => {
   const expenses = [
     {
       id: '1',
@@ -24,7 +24,7 @@ const Expenselist = () => {
   ];
 
   return (
-    <Container>
+    <Container className='new-expense'>
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -49,4 +49,4 @@ const Expenselist = () => {
   );
 }
 
-export default Expenselist;
+export default ExpenseList;
