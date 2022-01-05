@@ -5,23 +5,30 @@ import { useState } from 'react';
 
 const ExpenseList = (props) => {
   const [year, setYear] = useState(2022);
+
   const filterHandler = (dropdownYear) => {
     setYear(dropdownYear);
   };
+
+  const deleteExpense = (id) => {
+    props.onDeleteExpense(id);
+  }
 
   const filteredList = props.items.filter(
     (el) => el.date.getFullYear() === Number(year)
   );
 
-  let content = <h2 className ='expense-list__notfound'>No expenses found</h2>;
+  let content = <h2 className='expense-list__notfound'>No expenses found</h2>;
 
   if (filteredList.length > 0) {
     content = filteredList.map((el) => (
       <ExpenseItem
         key={el.id}
+        id={el.id}
         title={el.title}
         amount={el.amount}
         date={el.date}
+        onDeleteExpense={deleteExpense}
       />
     ));
   }

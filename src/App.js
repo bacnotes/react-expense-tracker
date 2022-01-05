@@ -32,14 +32,20 @@ const App = () => {
     setExpenseList((prev) => {
       return [formData, ...prev];
     });
-  }
-  
+  };
+
+  const deleteExpenseHandler = (id) => {
+    setExpenseList((prev) => {
+      return prev.filter((el) => el.id !== id);
+    });
+  };
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpenseList items={expenseList} />
+      <ExpenseList onDeleteExpense={deleteExpenseHandler} items={expenseList} />
     </div>
   );
-}
+};
 
 export default App;
