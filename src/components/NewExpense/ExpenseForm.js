@@ -1,19 +1,68 @@
-import React from 'react';
+import { useState } from 'react';
 const ExpenseForm = () => {
+  const [userInput, setUserInput] = useState({
+    title: '',
+    amount: '',
+    date: '',
+  });
+  const titleChangeHandler = (e) => {
+    setUserInput((prevState) => {
+      return { ...prevState, title: e.target.value };
+    });
+  };
+
+  const amountChangeHandler = (e) => {
+    setUserInput((prevState) => {
+      return { ...prevState, amount: e.target.value };
+    });
+  };
+
+  const dateChangeHandler = (e) => {
+    setUserInput((prevState) => {
+      return { ...prevState, date: e.target.value };
+    });
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    const expenseData = userInput
+    // to server data
+    console.log(expenseData)
+    // reset form
+    setUserInput({
+      title: '',
+      amount: '',
+      date: ''
+    })
+  }
+
   return (
-    <form action=''>
+    <form onSubmit={onSubmitHandler} action=''>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
-          <input type='text' />
+          <input
+            type='text'
+            onChange={titleChangeHandler}
+            value={userInput.title}
+          />
         </div>
         <div className='new-expense__control'>
           <label>Amount</label>
-          <input type='number' min='0' />
+          <input
+            type='number'
+            min='0'
+            onChange={amountChangeHandler}
+            value={userInput.amount}
+          />
         </div>
         <div className='new-expense__control'>
           <label>Date</label>
-          <input type='date' />
+          <input
+            type='date'
+            onChange={dateChangeHandler}
+            value={userInput.date}
+          />
         </div>
       </div>
       <div className='new-expense__actions'>
