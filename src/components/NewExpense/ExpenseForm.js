@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
     title: '',
     amount: '',
@@ -25,9 +25,13 @@ const ExpenseForm = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault()
-    const expenseData = userInput
+    const expenseData = {
+      ...userInput,
+      date: new Date (userInput.date)
+    }
+    console.log('expensedata',expenseData);
     // to server data
-    console.log(expenseData)
+    props.onSaveExpenseData(expenseData);
     // reset form
     setUserInput({
       title: '',
