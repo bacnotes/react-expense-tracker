@@ -35,29 +35,29 @@ const ExpenseForm = (props) => {
     if (!expenseData.title) {
       Toast.fire({
         icon: 'warning',
-        title: 'title不可空白',
+        title: 'Oops, there is no Title',
       });
       return
     }
-    if (expenseData.title.length > 12) {
+    if (expenseData.title.length > 16) {
       Toast.fire({
         icon: 'warning',
-        title: '記帳內容title不可超過12字',
+        title: 'Title maximum length is 15',
       });
       return;
     }
     if (!expenseData.amount) {
       Toast.fire({
-        icon:'warning',
-        title: 'Amount不可空白'
-      })
+        icon: 'warning',
+        title: 'Oops, there is no Amount',
+      });
       return
     }
     if (!expenseData.date) {
       Toast.fire({
-        icon:'warning',
-        title: 'Date不可空白'
-      })
+        icon: 'warning',
+        title: 'Oops, there is no Date',
+      });
       return
     }
     // to server data
@@ -66,8 +66,8 @@ const ExpenseForm = (props) => {
     setUserInput({
       title: '',
       amount: '',
-      date: ''
-    })
+      date: new Date().toISOString().split('T')[0],
+    });
   }
 
   return (
