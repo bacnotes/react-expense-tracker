@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './scss/main.scss';
 import ExpenseList from './components/Expense/ExpenseList';
 import NewExpense from './components/NewExpense/NewExpense';
+import Navbar from './layouts/Navbar';
 const App = () => {
   const dummyExpenseList = [
     {
@@ -72,6 +73,7 @@ const App = () => {
 
   return (
     <div>
+      <Navbar/>
       <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseList onDeleteExpense={deleteExpenseHandler} items={expenseList} />
     </div>

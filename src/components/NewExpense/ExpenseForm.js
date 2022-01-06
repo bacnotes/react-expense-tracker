@@ -37,6 +37,7 @@ const ExpenseForm = (props) => {
         icon: 'warning',
         title: 'title不可空白',
       });
+      return
     }
     if (expenseData.title.length > 12) {
       Toast.fire({
@@ -50,12 +51,14 @@ const ExpenseForm = (props) => {
         icon:'warning',
         title: 'Amount不可空白'
       })
+      return
     }
     if (!expenseData.date) {
       Toast.fire({
         icon:'warning',
         title: 'Date不可空白'
       })
+      return
     }
     // to server data
     props.onSaveExpenseData(expenseData);

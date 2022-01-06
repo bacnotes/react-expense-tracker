@@ -9,6 +9,10 @@
   border-radius: 0.5rem;
   box-shadow: 0 1px 8px rgba(152, 105, 163, 0.25);
 }
+.navbar__title {
+  color: var(--btn);
+  text-align: center;
+}
 
 .new-expense {
   text-align: center; 
@@ -73,7 +77,7 @@
     padding: 0 1rem;
     font-size: 1rem;
     color: var(--btn);
-    text-shadow: 1px 1px white;
+    text-shadow: 1px 1px var(--line);
     @include media-min($sm) {
       font-size: 1.2rem;
     }
@@ -112,7 +116,7 @@
   height: 5.5rem;
   border: 1px solid var(--line);
   background-color: var(--theme);
-  color: white;
+  color: var(--line);
   &__year {
     font-size: 0.8rem;
   }
