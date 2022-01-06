@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'breakpoint';
+@import 'colorTheme';
 
 .container {
   max-width: 95%;
@@ -10,22 +11,22 @@
 }
 
 .new-expense {
-  text-align: center;
-  background-color: #a3c3e7;
+  text-align: center; 
+  background-color: var(--background);
   button {
     font: inherit;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
-    border: 1px solid #ffffff;
-    background-color: #65a779;
-    color: white;
+    border: 1px solid var(--line);
+    background-color: var(--btn);
+    color: var(--text);
     border-radius: 0.5rem;
     margin-right: 0.4rem;
     &:hover,
     &:active {
-      background-color: #e47fb2;
+      background-color: var(--theme);
     }
   }
   &__controls {
@@ -38,7 +39,7 @@
       font: inherit;
       padding: 0.5rem;
       border-radius: 0.5rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--line);
       height: 2.5rem;
       flex: 1;
       max-width: 20rem;
@@ -58,7 +59,7 @@
   display: flex;
   padding: 0.5rem;
   margin: 1rem 0;
-  background-color: #e1edee;
+  background-color: var(--sub-background);
   border-radius: 0.5rem;
   &__description {
     position: relative;
@@ -71,18 +72,19 @@
     text-align: left;
     padding: 0 1rem;
     font-size: 1rem;
-    color: #65a779;
+    color: var(--btn);
+    text-shadow: 1px 1px white;
     @include media-min($sm) {
       font-size: 1.2rem;
     }
   }
   &__price {
     padding: 0.5rem;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--line);
     font-size: 1rem;
     font-weight: bold;
-    color: #ffffff;
-    background-color: #a8c97f;
+    color: var(--text);
+    background-color: var(--money);
     @include media-min($sm) {
       font-size: 1.2rem;
       padding: 0.5rem 1.5rem;
@@ -94,9 +96,9 @@
     right: 0;
     font-size: 1.2rem;
     padding: 0.5rem 0 0.5rem 0.5rem;
-    color: #e47fb2;
+    color: var(--theme);
     &:hover {
-      color: #ff0000;
+      color: var(--warn);
     }
   }
 }
@@ -108,8 +110,8 @@
   justify-content: center;
   width: 5.5rem;
   height: 5.5rem;
-  border: 1px solid #ececec;
-  background-color: #e47fb2;
+  border: 1px solid var(--line);
+  background-color: var(--theme);
   color: white;
   &__year {
     font-size: 0.8rem;
@@ -125,7 +127,7 @@
 }
 
 .expenses-filter {
-  color: #ffffff;
+  color: var(--text);
   padding: 0 1rem;
   &__control {
     display: flex;
@@ -144,19 +146,19 @@
     padding: 0.5rem 3rem;
     font-weight: bold;
     border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--line);
   }
 }
 
 .expense-list__notfound {
-  color: #ffffff;
+  color: var(--text);
   text-align: center;
 }
 
 .chart {
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #e1edee;
+  background-color: var(--sub-background);
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -170,7 +172,7 @@
   &__number{
     display:none;
     margin-bottom: 0.2rem;
-    color:#e47fb2;
+    color: var(--theme);
     @include media-min($sm){
       display:block;
       font-size: 0.4rem;
@@ -180,8 +182,8 @@
     height: 100%;
     width: 0.8rem;
     border-radius: 0.2rem;
-    outline:1px solid #ececec;
-    background-color: #a3c3e7;
+    outline:1px solid var(--line);
+    background-color: var(--background);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -191,7 +193,7 @@
     }
   }
   &__fill {
-    background-color: #ffffff;
+    background-color: var(--theme);
     width: 100%;
     transition: all 0.3s ease-out;
   }
