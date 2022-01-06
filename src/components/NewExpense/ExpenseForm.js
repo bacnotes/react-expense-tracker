@@ -27,6 +27,7 @@ const ExpenseForm = (props) => {
     e.preventDefault()
     const expenseData = {
       ...userInput,
+      amount: + userInput.amount,
       date: new Date (userInput.date)
     }
     // to server data

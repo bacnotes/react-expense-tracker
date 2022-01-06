@@ -152,3 +152,40 @@
   color: #ffffff;
   text-align: center;
 }
+
+.chart {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #e1edee;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 10rem;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__inner {
+    height: 100%;
+    width: 1.2rem;
+    border-radius: 0.2rem;
+    border:1px solid #ffffff;
+    background-color: #a3c3e7;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__fill {
+    background-color: #ffffff;
+    width: 100%;
+    transition: all 0.3s ease-out;
+  }
+  &__label {
+    font-weight: bold;
+    font-size: 0.5rem;
+    text-align: center;
+  }
+}

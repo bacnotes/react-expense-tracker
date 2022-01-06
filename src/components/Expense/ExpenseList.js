@@ -1,6 +1,8 @@
 import ExpenseItem from './ExpenseItem';
 import Container from './Container';
 import ExpensesFilter from './../ExpensesFilter/ExpensesFilter';
+import ExpenseListChart from './../Expense/ExpenseListChart';
+
 import { useState } from 'react';
 
 const ExpenseList = (props) => {
@@ -37,6 +39,7 @@ const ExpenseList = (props) => {
     <ul>
       <Container className='new-expense'>
         <ExpensesFilter selected={year} onChangeFilter={filterHandler} />
+        <ExpenseListChart expenseList={filteredList} />
         {content}
       </Container>
     </ul>
