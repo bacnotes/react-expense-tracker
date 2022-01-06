@@ -1,6 +1,7 @@
 # Expense Tracker
-[Demo site](https://bacnotes.github.io/react-expense-tracker/ "Demo site")
-![demo fig](demo.gif)
+[Demo site](https://bacnotes.github.io/react-expense-tracker/ "Demo site")  
+
+<img src="./demo.gif" width="660" />
 
 ## Features
 What you can do is to
