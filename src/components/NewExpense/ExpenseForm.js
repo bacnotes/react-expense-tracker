@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { Toast } from './../../util';
 const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
     title: '',
     amount: '',
-    date: '',
+    date: new Date().toISOString().split('T')[0],
   });
   const titleChangeHandler = (e) => {
     setUserInput((prevState) => {
@@ -30,6 +31,32 @@ const ExpenseForm = (props) => {
       amount: + userInput.amount,
       date: new Date (userInput.date)
     }
+    // data check
+    if (!expenseData.title) {
+      Toast.fire({
+        icon: 'warning',
+        title: 'title不可空白',
+      });
+    }
+    if (expenseData.title.length > 12) {
+      Toast.fire({
+        icon: 'warning',
+        title: '記帳內容title不可超過12字',
+      });
+      return;
+    }
+    if (!expenseData.amount) {
+      Toast.fire({
+        icon:'warning',
+        title: 'Amount不可空白'
+      })
+    }
+    if (!expenseData.date) {
+      Toast.fire({
+        icon:'warning',
+        title: 'Date不可空白'
+      })
+    }
     // to server data
     props.onSaveExpenseData(expenseData);
     // reset form
@@ -46,6 +73,7 @@ const ExpenseForm = (props) => {
         <div className='new-expense__control'>
           <label>Title</label>
           <input
+            focus
             type='text'
             onChange={titleChangeHandler}
             value={userInput.title}
@@ -56,6 +84,7 @@ const ExpenseForm = (props) => {
           <input
             type='number'
             min='0'
+            max='1000000000'
             onChange={amountChangeHandler}
             value={userInput.amount}
           />
@@ -66,6 +95,7 @@ const ExpenseForm = (props) => {
             type='date'
             onChange={dateChangeHandler}
             value={userInput.date}
+            placeholder='Date'
           />
         </div>
       </div>
