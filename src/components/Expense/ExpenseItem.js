@@ -9,7 +9,7 @@ const ExpenseItem = (props) => {
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
         <h2 className='expense-item__name'>{props.title}</h2>
-        <Container className='expense-item__price'>${props.amount}</Container>
+        <Container className='expense-item__price'>${props.amount.toLocaleString()}</Container>
         <i id={props.id}    
           onClick={clickHandler}
           className='expense-item__delete fas fa-times-circle'></i>
