@@ -167,16 +167,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  &__number{
+    display:none;
+    margin-bottom: 0.2rem;
+    color:#e47fb2;
+    @include media-min($sm){
+      display:block;
+      font-size: 0.4rem;
+    }
+  }
   &__inner {
     height: 100%;
-    width: 1.2rem;
+    width: 0.8rem;
     border-radius: 0.2rem;
-    border:1px solid #ffffff;
+    outline:1px solid #ececec;
     background-color: #a3c3e7;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @include media-min($sm){
+      width: 1.2rem;
+    }
   }
   &__fill {
     background-color: #ffffff;

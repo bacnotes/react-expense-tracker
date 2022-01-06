@@ -5,6 +5,7 @@ const ChartBar = (props) => {
   }
   return (
     <div className='chart-bar'>
+      <span className='chart-bar__number'>${props.value.toLocaleString()}</span>
       <div className='chart-bar__inner'>
         <div className='chart-bar__fill' style={{ height: barHeight }}></div>
       </div>
