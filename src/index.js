@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { IntlProvider } from 'react-intl'
-const locale = navigator.language
+import { IntlProvider } from 'react-intl';
+import { AuthContextProvider } from './store/auth-context';
+const locale = navigator.language;
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <IntlProvider locale={locale} key={locale} defaultLocale='en'>
-        <App />
-      </IntlProvider>
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <IntlProvider locale={locale} key={locale} defaultLocale='en'>
+          <App />
+        </IntlProvider>
+      </BrowserRouter>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

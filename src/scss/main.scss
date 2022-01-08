@@ -11,10 +11,19 @@
   box-shadow: 0 1px 8px rgba(152, 105, 163, 0.25);
 }
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--background);
   &__title {
     color: var(--text);
     text-align: center;
+  }
+  &__logout{
+    @extend %button-style;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
   }
 }
 

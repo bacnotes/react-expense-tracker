@@ -1,75 +1,72 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { Toast } from './../../util';
+import AuthContext from './../../store/auth-context';
+import { useHistory } from 'react-router-dom';
 const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory()
 
+  const authCtx = useContext(AuthContext);
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const email = emailInputRef.current.value;
     const password = passwordInputRef.current.value;
 
-    // check data
-    if (!email) {
-      Toast.fire({
-        icon: 'warning',
-        title: 'Oops, there is no email',
-      });
-    }
-
-    if (!password) {
-      Toast.fire({
-        icon: 'warning',
-        title: 'Oops, there is no password',
-      });
-    }
-
-    if (password.length < 6) {
-      Toast.fire({
-        icon: 'warning',
-        title: 'Oops, minimum password length is 6',
-      });
-    }
+    // check data using firebase
     setIsLoading(true);
+    let url;
     if (isLogin) {
-      
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
     } else {
-      fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            email,
-            password,
-            returnSecurityToken: true,
-          }),
-          headers: {
-            'Content-Type': 'application.json',
-          },
-        }
-      ).then((response) => {
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
+    }
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+        returnSecurityToken: true,
+      }),
+      headers: {
+        'Content-Type': 'application.json',
+      },
+    })
+      .then((response) => {
         setIsLoading(false);
         if (response.ok) {
-          // ...
-          console.log(response)
+          return response.json();
         } else {
           return response.json().then((data) => {
-            const message = data.error.message || 'Authentication failed'
-            Toast.fire({
-              icon:'warning',
-              title: message
-            })
+            const message = data.error.message || 'Authentication failed';
+            throw new Error(message);
           });
         }
+      })
+      .then((data) => {
+        authCtx.login(data.idToken);
+        Toast.fire({
+          icon: 'success',
+          title: 'Login Success!',
+        });
+        history.replace('/')
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: 'warning',
+          title: error.message,
+        });
       });
-    }
   };
+
   return (
     <section className='auth'>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
@@ -80,10 +77,17 @@ const AuthForm = () => {
         </div>
         <div className='auth__control'>
           <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' ref={passwordInputRef} />
+          <input
+            type='password'
+            id='password'
+            ref={passwordInputRef}
+            autoComplete='off'
+          />
         </div>
         <div className='auth__actions'>
-          {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}
+          {!isLoading && (
+            <button>{isLogin ? 'Login' : 'Create Account'}</button>
+          )}
           {isLoading && <button disabled>Sending request...</button>}
           <button
             type='button'
