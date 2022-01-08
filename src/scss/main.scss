@@ -4,7 +4,8 @@
 @import 'colorTheme';
 
 .container {
-  max-width: 95%;
+  width: 95%;
+  max-width: 1280px;
   margin: 0.5rem auto;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -12,6 +13,7 @@
 }
 .navbar {
   display: flex;
+  max-width: 25rem;
   justify-content: space-between;
   align-items: center;
   background: var(--background);
