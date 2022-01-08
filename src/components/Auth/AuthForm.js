@@ -4,6 +4,7 @@ const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
+  const [isLoading, setIsLoading] = useState(false)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -35,8 +36,9 @@ const AuthForm = () => {
         title: 'Oops, minimum password length is 6',
       });
     }
-
+    setIsLoading(true);
     if (isLogin) {
+      
     } else {
       fetch(
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI',
@@ -52,6 +54,7 @@ const AuthForm = () => {
           },
         }
       ).then((response) => {
+        setIsLoading(false);
         if (response.ok) {
           // ...
           console.log(response)
@@ -80,7 +83,8 @@ const AuthForm = () => {
           <input type='password' id='password' ref={passwordInputRef} />
         </div>
         <div className='auth__actions'>
-          <button>{isLogin ? 'Login' : 'Create Account'}</button>
+          {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}
+          {isLoading && <button disabled>Sending request...</button>}
           <button
             type='button'
             className='auth__actions__toggle'
