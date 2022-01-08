@@ -1,81 +1,20 @@
-import React from 'react';
-import { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './scss/main.scss';
-import ExpenseList from './components/Expense/ExpenseList';
-import NewExpense from './components/NewExpense/NewExpense';
+import AuthPage from './pages/AuthPage';
+import ExpensePage from './pages/ExpensePage';
 import Navbar from './layouts/Navbar';
 const App = () => {
-  const dummyExpenseList = [
-    {
-      id: '1',
-      title: 'Breakfast',
-      amount: 20,
-      date: new Date(2022, 0, 4),
-    },
-    { id: '2', title: 'traffic card', amount: 1280, date: new Date(2022, 0, 4) },
-    {
-      id: '3',
-      title: 'Udemy course',
-      amount: 390,
-      date: new Date(2022, 0, 4),
-    },
-    {
-      id: '4',
-      title: 'Lunch',
-      amount: 80,
-      date: new Date(2022, 0, 4),
-    },
-    {
-      id: '5',
-      title: 'Mizuno run shoes',
-      amount: 1800,
-      date: new Date(2021, 11, 24),
-    },
-    {
-      id: '6',
-      title: 'ETF',
-      amount: 10000,
-      date: new Date(2021, 10, 30),
-    },
-    {
-      id: '7',
-      title: 'Cat cans',
-      amount: 500,
-      date: new Date(2021, 9, 10),
-    },
-    {
-      id: '8',
-      title: 'Laptop',
-      amount: 20000,
-      date: new Date(2021, 8, 1),
-    },
-    {
-      id: '9',
-      title: 'Stocks',
-      amount: 3000,
-      date: new Date(2021, 7, 1),
-    },
-  ];
-
-  const [expenseList, setExpenseList] = useState(dummyExpenseList);
-
-  const addExpenseHandler = (formData) => {
-    setExpenseList((prev) => {
-      return [formData, ...prev];
-    });
-  };
-
-  const deleteExpenseHandler = (id) => {
-    setExpenseList((prev) => {
-      return prev.filter((el) => el.id !== id);
-    });
-  };
-
   return (
     <div>
-      <Navbar/>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpenseList onDeleteExpense={deleteExpenseHandler} items={expenseList} />
+      <Navbar />
+      <Switch>
+        <Route path='/react-expense-tracker' exact>
+          <ExpensePage />
+        </Route>
+        <Route path='/auth'>
+          <AuthPage />
+        </Route>
+      </Switch>
     </div>
   );
 };

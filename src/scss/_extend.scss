@@ -1,0 +1,12 @@
+%button-style {
+  font: inherit;
+  font-weight: bold;
+  color: var(--line);
+  background-color: var(--theme);
+  border: 1px solid var(--theme);
+  cursor: pointer;
+  &:hover, &:active {
+    background-color: var(--money);
+    border-color: var(--money);
+  }
+}
