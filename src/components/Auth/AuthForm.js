@@ -75,7 +75,7 @@ const AuthForm = () => {
   };
 
   return (
-    <section className='auth'>
+    <section className='auth__form'>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       <form onSubmit={submitHandler}>
         <div className='auth__control'>
@@ -100,7 +100,7 @@ const AuthForm = () => {
             type='button'
             className='auth__actions__toggle'
             onClick={switchAuthModeHandler}>
-            {isLogin ? 'Create new account' : 'Login with existing account'}
+            {isLogin ? 'Create New Account' : 'Already have an account'}
           </button>
         </div>
       </form>

@@ -20,7 +20,7 @@
     color: var(--text);
     text-align: center;
   }
-  &__logout{
+  &__logout {
     @extend %button-style;
     padding: 0.5rem 1.5rem;
     border-radius: 0.2rem;
@@ -219,15 +219,29 @@
 }
 
 .auth {
-  margin: 3rem auto;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  gap: 1rem;
   width: 95%;
-  max-width: 25rem;
-  border-radius: 6px;
-  background-color: var(--background);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  margin: auto auto;
   padding: 1rem;
   text-align: center;
+  border-radius: 6px;
+  background-color: var(--background);
+  @include media-min($sm) {
+    flex-direction: row;
+  }
+  &__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 15rem;
+    margin: auto 0;
+    align-items: center;
+  }
   h1 {
+    margin-bottom: 0.5rem;
     text-align: center;
     color: var(--line);
   }
@@ -251,15 +265,24 @@
     }
   }
   &__actions {
-    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     button {
       @extend %button-style;
       margin: 0.5rem;
-      padding: 0.5rem 2.5rem;
+      padding: 0.5rem 2rem;
       border-radius: 0.2rem;
+      font-size: 0.8rem;
     }
+    &__toggle {
+      background: transparent;
+    }
+  }
+  &__cover {
+    width: 100%;
+    max-height: 16rem;
+    object-fit: contain;
+    border-radius: 0.2rem;
   }
 }
