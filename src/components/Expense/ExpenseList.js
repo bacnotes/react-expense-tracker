@@ -2,7 +2,7 @@ import ExpenseItem from './ExpenseItem';
 import Container from './Container';
 import ExpensesFilter from './../ExpensesFilter/ExpensesFilter';
 import ExpenseListChart from './../Expense/ExpenseListChart';
-
+import { Toast } from './../../util';
 import { useState } from 'react';
 
 const ExpenseList = (props) => {
@@ -13,8 +13,21 @@ const ExpenseList = (props) => {
   };
 
   const deleteExpense = (id) => {
-    props.onDeleteExpense(id);
-  }
+    Toast.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Toast.fire('Deleted!', '', 'success');
+        props.onDeleteExpense(id);
+      }
+    });
+  };
 
   const filteredList = props.items.filter(
     (el) => el.date.getFullYear() === Number(year)
