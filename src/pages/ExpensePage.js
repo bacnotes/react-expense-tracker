@@ -60,8 +60,13 @@ const ExpensePage = () => {
         date: new Date(2021, 7, 1),
       },
     ];
-
-    const [expenseList, setExpenseList] = useState(dummyExpenseList);
+    let localExpenseList = JSON.parse(localStorage.getItem('expenses')) || dummyExpenseList;
+    localExpenseList = localExpenseList.map((expense) => ({
+      ...expense,
+      date: new Date(expense.date),
+    }));
+    const [expenseList, setExpenseList] = useState(localExpenseList);
+    localStorage.setItem('expenses', JSON.stringify(expenseList));
 
     const addExpenseHandler = (formData) => {
       setExpenseList((prev) => {

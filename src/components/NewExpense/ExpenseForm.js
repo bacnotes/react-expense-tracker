@@ -76,7 +76,7 @@ const ExpenseForm = (props) => {
         <div className='new-expense__control'>
           <label>Title</label>
           <input
-            focus
+            focus="true"
             type='text'
             onChange={titleChangeHandler}
             value={userInput.title}

@@ -22,12 +22,15 @@ const AuthForm = () => {
     // check data using firebase
     setIsLoading(true);
     let url;
+    let successMsg
     if (isLogin) {
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
+        successMsg= 'Login Success!'
     } else {
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
+        successMsg = 'Register Success!';
     }
     fetch(url, {
       method: 'POST',
@@ -55,7 +58,7 @@ const AuthForm = () => {
         authCtx.login(data.idToken);
         Toast.fire({
           icon: 'success',
-          title: 'Login Success!',
+          title: successMsg,
         });
         history.replace('/')
       })
