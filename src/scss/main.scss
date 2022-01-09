@@ -85,7 +85,6 @@ body {
   &__name {
     flex: 1;
     text-align: left;
-    text-shadow: 1px 1px var(--line);
     padding: 0 1rem;
     font-size: 1rem;
     color: var(--theme);
@@ -291,5 +290,6 @@ body {
     max-height: 24rem;
     object-fit: contain;
     border-radius: 0.2rem;
+    opacity: 0.95;
   }
 }

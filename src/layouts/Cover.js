@@ -1,11 +1,11 @@
-import cat from './cat.jpg';
+import note from './note.jpeg';
 
 const Cover = () => {
   return (
     <div>
       <img
         className='auth__cover'
-        src={cat}
+        src={note}
         alt='cover'
       />
     </div>
