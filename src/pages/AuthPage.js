@@ -1,11 +1,12 @@
 import AuthForm from './../components/Auth/AuthForm';
 import Cover from './../layouts/Cover';
+import Container from './../components/Expense/Container';
 const AuthPage = () => {
   return (
-    <div className='auth'>
+    <Container className='auth'>
       <Cover />
       <AuthForm />
-    </div>
+    </Container>
   );
 };
 

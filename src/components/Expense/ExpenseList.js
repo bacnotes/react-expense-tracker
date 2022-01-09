@@ -18,8 +18,8 @@ const ExpenseList = (props) => {
       icon: 'warning',
       showCancelButton: true,
       showConfirmButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#a8c97f',
+      cancelButtonColor: '#e47fb2',
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
