@@ -7,7 +7,7 @@ const AuthForm = () => {
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
   const authCtx = useContext(AuthContext);
   const switchAuthModeHandler = () => {
@@ -15,29 +15,29 @@ const AuthForm = () => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const email = emailInputRef.current.value;
     const password = passwordInputRef.current.value;
 
     // check data using firebase
     setIsLoading(true);
     let url;
-    let successMsg
+    let successMsg;
     if (isLogin) {
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
-        successMsg= 'Login Success!'
+      successMsg = 'Login Success!';
     } else {
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtYXP4WgTMIr_5UVQISX57yW6RTJkARHI';
-        successMsg = 'Register Success!';
+      successMsg = 'Registration Success!';
     }
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
         email,
         password,
-        returnSecurityToken: true,
+        returnSecureToken: true,
       }),
       headers: {
         'Content-Type': 'application.json',
@@ -45,6 +45,7 @@ const AuthForm = () => {
     })
       .then((response) => {
         setIsLoading(false);
+        
         if (response.ok) {
           return response.json();
         } else {
@@ -55,12 +56,15 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        const expirationTime = new Date(
+          new Date().getTime() + parseInt(data.expiresIn, 10) * 1000
+        );
+        authCtx.login(data.idToken, expirationTime);
         Toast.fire({
           icon: 'success',
           title: successMsg,
         });
-        history.replace('/')
+        history.replace('/');
       })
       .catch((error) => {
         Toast.fire({
