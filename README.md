@@ -5,9 +5,15 @@
 
 ## Features
 What you can do is to
+- Register with email (Firebase authentication)
+- Log in with your email & password / Log out 
 - Add expense with `Title`, `Amount` and `Date`
 - Check total monthly expense of the year by dropdowns
 - Delete expense by click `x` btn
 
+## Roadmap
+- i18n
+- save date in database(now in localStorage)
+
 ## Use
-- React, Sass, sweetalert2, uuid
+- Firebase, React, Sass, sweetalert2, uuid
