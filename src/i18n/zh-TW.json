@@ -1,0 +1,45 @@
+{
+  "website": {
+    "title": "記帳本"
+  },
+  "expense": {
+    "title": "記帳項目",
+    "amount": "金額",
+    "date": "日期",
+    "add": "新增"
+  },
+  "filter": {
+    "title": "年度",
+    "no-data": "尚無紀錄"
+  },
+  "auth": {
+    "login": "登入",
+    "logout": "登出",
+    "sign-up": "註冊",
+    "email": "信箱",
+    "password": "密碼",
+    "create-new-account": "新增帳戶",
+    "already-have-an-account": "已經有帳戶了",
+    "loading": "登入中..."
+  },
+  "toast-msg": {
+    "delete-confirm": "確定刪除嗎",
+    "confirm": "刪除",
+    "cancel": "取消",
+    "deleted": "已刪除"
+  },
+  "success-msg": {
+    "login": "歡迎回來!",
+    "register": "註冊成功!"
+  },
+  "error-msg": {
+    "no-title": "未填寫項目",
+    "no-amount": "未填寫金額",
+    "no-date": "未填寫日期",
+    "registered-email": "信箱已註冊過",
+    "wrong-password": "帳號或密碼錯誤",
+    "password-setting": "密碼長度需介於6-20字元",
+    "title-length": "記帳項目長度需小於20字",
+    "amount-length": "記帳金額不能超過1000萬"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "website": {
+    "title": "会計メモ帳"
+  },
+  "expense": {
+    "title": "項目",
+    "amount": "金額",
+    "date": "日付",
+    "add": "追加"
+  },
+  "filter": {
+    "title": "年度",
+    "no-data": "記録がありません"
+  },
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "sign-up": "登録",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "create-new-account": "新しいアカウントを作る",
+    "already-have-an-account": "既にアカウントをお持ちです",
+    "loading":"ログイン中"
+  },
+  "toast-msg": {
+    "delete-confirm": "削除しますか?",
+    "confirm": "はい",
+    "cancel": "いいえ",
+    "deleted": "削除しました!"
+  },
+  "success-msg": {
+    "login": "ようこそ！",
+    "register": "アカウント作成完了！"
+  },
+  "error-msg": {
+    "no-title": "項目が必要です",
+    "no-amount": "金額が必要です",
+    "no-date": "日付が必要です",
+    "registered-email": "既に登録したメールアドレスです",
+    "wrong-password": "メールアドレスまたはパスワードに間違いがあります",
+    "password-setting": "パスワード6～20文字設定お願いします",
+    "title-length": "項目最大文字数は20です",
+    "amount-length": "上限金額は1千万です"
+  }
+}

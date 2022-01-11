@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Toast } from './../../util';
+import { useTranslation } from 'react-i18next';
 const ExpenseForm = (props) => {
+  const { t } = useTranslation();
   const [userInput, setUserInput] = useState({
     title: '',
     amount: '',
@@ -35,28 +37,38 @@ const ExpenseForm = (props) => {
     if (!expenseData.title) {
       Toast.fire({
         icon: 'warning',
-        title: 'Oops, there is no Title',
+        title: t('error-msg.no-title'),
       });
       return
     }
-    if (expenseData.title.length > 16) {
+    if (expenseData.title.length > 20) {
       Toast.fire({
         icon: 'warning',
-        title: 'Title maximum length is 15',
+        title: t('error-msg.title-length'),
       });
       return;
     }
     if (!expenseData.amount) {
       Toast.fire({
         icon: 'warning',
-        title: 'Oops, there is no Amount',
+        title: t('error-msg.no-amount'),
       });
       return
     }
-    if (!expenseData.date) {
+
+    if (!expenseData.amount > 10000000) {
       Toast.fire({
         icon: 'warning',
-        title: 'Oops, there is no Date',
+        title: t('error-msg.amount-length'),
+      });
+      return;
+    }
+
+    if (!expenseData.date) {
+      console.log(expenseData)
+      Toast.fire({
+        icon: 'warning',
+        title: t('error-msg.no-date'),
       });
       return
     }
@@ -74,16 +86,16 @@ const ExpenseForm = (props) => {
     <form onSubmit={onSubmitHandler} action=''>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
-          <label>Title</label>
+          <label>{t('expense.title')}</label>
           <input
-            focus="true"
+            focus='true'
             type='text'
             onChange={titleChangeHandler}
             value={userInput.title}
           />
         </div>
         <div className='new-expense__control'>
-          <label>Amount</label>
+          <label>{t('expense.amount')}</label>
           <input
             type='number'
             min='0'
@@ -93,7 +105,7 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className='new-expense__control'>
-          <label>Date</label>
+          <label>{t('expense.date')}</label>
           <input
             type='date'
             onChange={dateChangeHandler}
@@ -103,7 +115,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className='new-expense__actions'>
-        <button type='submit'>Add</button>
+        <button type='submit'>{t('expense.add')}</button>
       </div>
     </form>
   );

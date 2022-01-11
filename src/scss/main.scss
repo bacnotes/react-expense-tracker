@@ -23,13 +23,29 @@ body {
   justify-content: space-between;
   align-items: center;
   background: var(--background);
+  font-size: 0.7rem;
+  @include media-min($sm) {
+      font-size: 1.2rem;
+  }
   &__title {
     color: var(--text);
     text-align: center;
   }
+  &__lang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+      color:var(--line);
+      &:hover{
+        background: var(--money)
+      }
+    }
+  }
   &__logout {
     @extend %button-style;
     padding: 0.5rem 1.5rem;
+    margin-left: 0.5rem;
     border-radius: 0.2rem;
     font-size: 1.2rem;
   }
@@ -166,6 +182,7 @@ body {
 }
 
 .expense-list__notfound {
+  margin-top: 1rem;
   color: var(--text);
   text-align: center;
 }

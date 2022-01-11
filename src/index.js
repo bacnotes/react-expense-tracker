@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import { AuthContextProvider } from './store/auth-context';
-
+import './i18n';
 
 const locale = navigator.language;
 ReactDOM.render(
