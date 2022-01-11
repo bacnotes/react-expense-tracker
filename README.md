@@ -10,10 +10,11 @@ What you can do is to
 - Add expense with `Title`, `Amount` and `Date`
 - Check total monthly expense of the year by dropdowns
 - Delete expense by click `x` btn
+- Change to EN/CN/JP interface
 
 ## Roadmap
-- i18n
-- save date in database(now in localStorage)
-
+- Google Login
+- Save date in database(now in localStorage)
+- waterfall
 ## Use
 - Firebase, React, Sass, sweetalert2, uuid
